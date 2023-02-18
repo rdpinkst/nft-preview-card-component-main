@@ -17,34 +17,35 @@ body{
     border-radius: 15px;
 }
 .card-image{
-    display: block;
     position: relative;
     border-radius: 10px;
     height: 320px;
+    margin-bottom: 30px;
 }
-.card-image:hover{
-    cursor: pointer;
-    background-color: hsl(178, 100%, 50%);   
-}
-.nft-image:hover{
-    opacity: 0.5;
-}
-.card-image:hover > .nft-view{
-    display: block;
-}
-
-.nft-view{
+.overlay{
    position: absolute;
-   display: none;
-   width: 40px;
    left: 0;
    right: 0;
    top: 0;
    bottom: 0;
-   margin: auto;
-   z-index: 0;  
+   background-color: hsl(178, 100%, 50%, 0.5);
+   display: none;
 }
-
+.overlay .nft-view{
+    display: block;
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: auto;
+}
+.card-image:hover .overlay{
+    display: flex;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.nft-image{
+    display: block;
+}
 .nft-image{
     object-fit: cover;
     width: 100%;
@@ -54,25 +55,32 @@ body{
 h1{
     color: hsl(0, 0%, 100%);
     font-size: 22px;
+    margin-top: 0;
 }
-h1:hover {
-    color:hsl(178, 100%, 50%);
-    cursor: pointer;
+.nft-paragraph{
+    line-height: 30px;
+    margin-bottom: 0;
 }
 .nft-info{
     display: flex;
     justify-content: space-between;
 }
 .ethereum, .clock{
-    margin-right: 5px;
+    margin-right: 7.5px;
+    height: 18px;
 }
 .eth-cost{
     color:hsl(178, 100%, 50%);
     font-weight: 600;
 }
+.eth-cost, .days-left{
+    display: flex;
+    align-items: center;
+}
 
 hr{
     color: hsl(215, 32%, 27%);
+    margin: 0;
 }
 .nft-creator{
     display: flex;
@@ -88,13 +96,16 @@ hr{
 .name{
     color: hsl(0, 0%, 100%);
 }
-.name:hover{
-    color:hsl(178, 100%, 50%);
-    cursor: pointer;
-}
 .attribution{
     position: absolute;
     bottom: 0;
     width: 100%;
     margin-bottom: 10px;
+}
+a{
+    text-decoration: none;
+    color: hsl(0, 0%, 100%);
+}
+a:hover{
+    color: hsl(178, 100%, 50%);
 }
